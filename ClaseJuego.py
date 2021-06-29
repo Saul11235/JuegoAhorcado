@@ -19,8 +19,7 @@ class ClaseJuego:
         self.LetrasNecesarias=[]
         for letra in self.palabraDeletreada:
             if letra!=" ":
-                try: self.LetrasNecesarias.index(letra)
-                except: self.LetrasNecesarias.append(letra)
+                if not(letra in self.LetrasNecesarias): self.LetrasNecesarias.append(letra)
         self.LetrasAdivinadas=[]
         self.victoria=False        
 
@@ -30,36 +29,31 @@ class ClaseJuego:
     def getOportunidades(self): return self.oportunidades
     def getJugadorEstaVivo(self): return self.JugadorEstaVivo
     def getLetrasNecesarias(self): return self.LetrasNecesarias
-    def getVistoria(self): return self.victoria
+    def getVictoria(self): return self.victoria
 
     def jugar(self,jugada):
         try:jugada=str(jugada).lstrip()[0].upper()
         except: jugada=" "
         if jugada.isalpha() or jugada=="Ñ":
-            try:
-                self.LetrasUsadas.index(jugada) #except si es letra nueva
-                return False
-            except:
-                self.LetrasUsadas.append(jugada)
-                try:
-                    self.LetrasNecesarias.index(jugada) #jugada correcta
+            #print("jugada correcta "+jugada)
+            if not(jugada in self.LetrasUsadas):
+                if jugada in self.LetrasNecesarias: #acierto
                     self.LetrasAdivinadas.append(jugada)
-                    sel.__ActualizarLetrero()
+                    self.__ActualizarLetrero()
                     if len(self.LetrasAdivinadas)==len(self.LetrasNecesarias):self.victoria=True
-                except:
-                    self.oportunidades-=1 #jugada incorrecta
-                    if not(self.oportunidades): self.JugadorEstaVivo=False
-
-                    pass
-
-                print("letra nueva")
+                else:
+                    self.oportunidades-=1 #error
+                    if not(self.oportunidades):self.JugadorEstaVivo=False
                 return True
-        else:
-            return False
+            else: return False
+        else: return False
 
-        def __ActualizarLetrero(self):
-            pass
-        print(jugada)
+    def __ActualizarLetrero(self):
+        self.letreroJuego.clear()
+        for letra in self.palabraDeletreada:
+            if letra in self.LetrasAdivinadas:self.letreroJuego.append(letra)
+            elif letra.isspace():self.letreroJuego.append(" ")
+            else: self.letreroJuego.append("_")
 
 if __name__=="__main__":
     j=ClaseJuego()
