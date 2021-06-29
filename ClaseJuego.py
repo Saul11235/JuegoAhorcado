@@ -4,7 +4,6 @@ class ClaseJuego:
 
     def __init__(self):
         self.nuevojuego()
-        print(self.palabra)
         
     def nuevojuego(self):
         self.palabra=PalabraNueva()
