@@ -7,10 +7,6 @@ for palabra in ArchivoExterno:
     PalabraCorregida=palabra.upper().removesuffix("\n")
     if PalabraCorregida!="":ListaPalabras.append(PalabraCorregida)
 
-print(ListaPalabras)
-#corregir
-
-
 def PalabraNueva():
     try: return(choice(ListaPalabras))
     except:return("PALABRAS")
