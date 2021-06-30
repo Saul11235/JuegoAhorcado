@@ -29,6 +29,7 @@ class ClaseJuego:
     def getOportunidades(self): return self.oportunidades
     def getJugadorEstaVivo(self): return self.JugadorEstaVivo
     def getLetrasNecesarias(self): return self.LetrasNecesarias
+    def getLetrasAdivinadas(self): return self.LetrasAdivinadas
     def getVictoria(self): return self.victoria
 
     def jugar(self,jugada):
