@@ -38,6 +38,7 @@ class ClaseJuego:
         if jugada.isalpha() or jugada=="Ñ":
             #print("jugada correcta "+jugada)
             if not(jugada in self.LetrasUsadas):
+                self.LetrasUsadas.append(jugada)
                 if jugada in self.LetrasNecesarias: #acierto
                     self.LetrasAdivinadas.append(jugada)
                     self.__ActualizarLetrero()
