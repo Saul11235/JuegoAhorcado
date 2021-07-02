@@ -25,7 +25,7 @@ class JuegoModoConsola:
                 else: exit()    
         
     def __pantallazoEnEspera(self):
-        if self.PrimerJuego:print("\n\nJuego del Ahorcado por ESPM")
+        if self.PrimerJuego:print("\n\nJuego del Ahorcado por Saul11235/Edwin Saul")
         else:
             if self.juego.getJugadorEstaVivo():
                 print("\n\n\n     \   /\n      \O/\n       |  \n       |   \n      / \ \n     /   \  ")

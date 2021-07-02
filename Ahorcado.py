@@ -10,8 +10,8 @@ class JuegoTk:
         self.ventana.bind("<Control_L>",lambda x: self.JuegoNuevo())
         self.ventana.bind("<Escape>",lambda x: exit())
         self.ventana.resizable(width=False,height=False)
-        self.ventana.geometry("300x600")
-        self.ventana.title("Juego del Ahorcado")
+        self.ventana.geometry("920x300")
+        self.ventana.title("Juego del Ahorcado por Saul11235/Edwin Saul")
         self.EstamosJugando=False
         #------------------------------------------
         self.ObjetoJuego=ClaseJuego()
@@ -19,20 +19,27 @@ class JuegoTk:
         self.Texto1.set("Bienvenido al juego del Ahorcado")
         self.Texto2=StringVar()
         self.Texto2.set("ENTER o CTRL para juego nuevo, ESC para salir")
-        self.Etiqueta1=Label(self.ventana,textvariable=self.Texto1)
-        self.Etiqueta2=Label(self.ventana,textvariable=self.Texto2)
+        self.Etiqueta1=Label(self.ventana,textvariable=self.Texto1,width=30,height=2)
+        self.Etiqueta2=Label(self.ventana,textvariable=self.Texto2,width=40,height=2)
         self.BotonNuevoJuego=Button(self.ventana,text="Nuevo Juego",command=self.JuegoNuevo)
         self.BotonEnviarTexto=Button(self.ventana,text=">>>",command=self.BotonEnviar)
-        self.EntradaTexto=Entry(self.ventana)
+        self.EntradaTexto=Entry(self.ventana,width=3)
         self.Lienzo=Canvas(self.ventana,width=300,height=300,bg="dark green")
         #------------------------------------------
-        self.Etiqueta1.pack()
-        self.Etiqueta2.pack()
-        self.BotonNuevoJuego.pack()
-        self.EntradaTexto.pack()
+        #Estilos y maquetacion
+        self.Etiqueta1.grid(row=0,column=1,columnspan=3)
+        self.Etiqueta2.grid(row=1,column=1,columnspan=3)
+        self.BotonNuevoJuego.grid(row=2,column=3)
+        self.EntradaTexto.grid(row=2,column=2)
         self.EntradaTexto.focus_set()
-        self.BotonEnviarTexto.pack()
-        self.Lienzo.pack()
+        self.BotonEnviarTexto.grid(row=2,column=1)
+        self.Lienzo.grid(row=0,column=0,rowspan=3)
+        #------------------------------------------
+        self.Etiqueta1.config(fg="blue4",font=("Verdana",20))
+        self.Etiqueta2.config(fg="red4",font=("Verdana",18))
+        self.BotonNuevoJuego.config(font=("Verdana",14))
+        self.EntradaTexto.config(fg="green2",bg="black",font=("Verdana",30))
+        self.BotonEnviarTexto.config(font=("Verdana",14))
         #------------------------------------------
         self.ventana.mainloop()
 
