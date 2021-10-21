@@ -139,4 +139,6 @@ class JuegoTk:
                 self.Lienzo.create_line(150,190,110,250,width=5,fill="white")#pierna1
                 self.Lienzo.create_line(150,190,190,250,width=5,fill="white")#pierna2
 
+
+
 if __name__=="__main__":a=JuegoTk()
